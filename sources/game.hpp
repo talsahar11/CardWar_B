@@ -6,8 +6,8 @@ namespace ariel {
     constexpr int LOG_SIZE = 100 ;
     class Game {
     private:
-        Player *p1 ;
-        Player *p2 ;
+        Player& p1 ;
+        Player& p2 ;
         Player* winner;
         Deck *gameDeck;
         std::array<std::string, LOG_SIZE> log;
@@ -26,12 +26,11 @@ namespace ariel {
 
     public:
 
-        Game(Player p1, Player p2) ;
-        Game(Player p1, Player p2, Deck deck) ;
+        Game(Player& p1, Player& p2) ;
         Game(const Game& other) = default ;
-        Game& operator=(const Game& other) = default;
+        Game& operator=(const Game& other) = delete;
         Game(Game&& other) = default;
-        Game& operator=(Game&& other) noexcept = default;
+        Game& operator=(Game&& other) noexcept = delete;
         ~Game() ;
         void playTurn() ;
 

@@ -94,6 +94,7 @@ namespace ariel {
     void Deck::addCard(Card *c) {
         if (this->actualSize == totalSize) {
             std::cout << "Failed to add a card to the deck, deck is full.\n";
+            delete c ;
             return;
         } else {
             this->cards[this->actualSize] = c;
